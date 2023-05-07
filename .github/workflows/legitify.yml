@@ -1,0 +1,21 @@
+name: Legitify Analyze
+on:
+  workflow_dispatch:
+
+jobs:
+  analyze:
+    permissions:
+      # required for all workflows
+      security-events: write
+      # only required for workflows in private repositories
+      actions: read
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Legitify Action
+        uses: Legit-Labs/legitify@gofri/sarif-action
+        with:
+          github_token: ${{ secrets.GAL_PAT }}
+          legitify_base_version: '0.0.1-gofri-sarif'
