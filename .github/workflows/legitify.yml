@@ -18,4 +18,5 @@ jobs:
         uses: Legit-Labs/legitify@gofri/sarif-action
         with:
           github_token: ${{ secrets.GAL_PAT }}
-          legitify_base_version: '0.0.1-gofri-sarif'
+          legitify_base_version: 'gofri/sarif-action'
+          compile-legitify: 'true'
